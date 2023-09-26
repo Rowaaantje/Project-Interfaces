@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class startScript : MonoBehaviour
 {
-    public void NextScene()
+    public void loadScene()
     {
-        SceneManager.LoadScene("Sample Scene");
+        SceneManager.LoadScene("SampleScene"); 
+        Debug.Log("clicked");
     }
 }
