@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,5 +10,11 @@ public class startScript : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene"); 
         Debug.Log("clicked");
+    }
+
+    public void quit()
+    {
+        Application.Quit();
+        Debug.Log("Quit game");
     }
 }
