@@ -8,7 +8,7 @@ public class startScript : MonoBehaviour
 {
     public void loadScene()
     {
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("IntroScene"); 
         Debug.Log("clicked");
     }
 
