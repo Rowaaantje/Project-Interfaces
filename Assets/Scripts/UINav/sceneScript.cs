@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class startScript : MonoBehaviour
+public class sceneScript : MonoBehaviour
 {
-    public void loadScene()
+    public void loadScene(string scenename)
     {
-        SceneManager.LoadScene("IntroScene"); 
+        SceneManager.LoadScene(scenename); 
         Debug.Log("clicked");
     }
 
