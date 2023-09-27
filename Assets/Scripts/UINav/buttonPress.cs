@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class buttonPress : MonoBehaviour
 {
-    public AudioSource audio;
-
-    public void playSound()
+    public AudioSource myFx;
+    public AudioClip clickFx;
+    
+    public void ClickSound()
     {
-        audio.Play();
+        myFx.PlayOneShot (clickFx);
     }
 }
+// {
+//     public AudioSource audio;
+
+//     public void playSound()
+//     {
+//         audio.Play();
+//     }
+// }
