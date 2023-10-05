@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     
     public Rigidbody2D rb;
 
-    public GameObject leftRotor;
-    public GameObject rightRotor;
+    public GameObject leftParticleSyst;
+    public GameObject rightParticleSyst;
+
+    //public Transform cameraloc;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     {
         //processing inputs
         Move();
+        //cameraloc.position = transform.position;
     }
 
     /// <summary>
@@ -39,37 +42,39 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        if (leftRotorSpeed <= 5)
+        if (leftRotorSpeed <= 1)
         {
             //Left Rotor speed forwards
             if (Input.GetKey(KeyCode.W))
             {
                 leftRotorSpeed += (float)0.01;
+                leftParticleSyst.SetActive(true);
             }
         } 
-        if (rightRotorSpeed <= 5)
+        if (rightRotorSpeed <= 1)
         {
             //Right Rotor speed forwards
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 rightRotorSpeed += (float)0.01;
+                rightParticleSyst.SetActive(true);
             }
         }
 
-        if (leftRotorSpeed >= -2 )
+        if (leftRotorSpeed >= -0.25 )
         {
             //Left Rotor speed backwards
             if (Input.GetKey(KeyCode.S))
             {
-                leftRotorSpeed -= (float)0.01;
+                leftRotorSpeed -= (float)0.001;
             }
         }
-        if (rightRotorSpeed >= -2)
+        if (rightRotorSpeed >= -0.25)
         {
             //Right Rotor speed backwards
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                rightRotorSpeed -= (float)0.01;
+                rightRotorSpeed -= (float)0.001;
             }
         }
 
@@ -81,12 +86,12 @@ public class Player : MonoBehaviour
         if (rightRotorSpeed >= leftRotorSpeed)
         {
             rb.AddForce(transform.up * rightRotorSpeed);
-            rb.rotation -= leftRotorSpeed;
+            rb.rotation -= (rightRotorSpeed - leftRotorSpeed);
         }
         if (rightRotorSpeed <= leftRotorSpeed)
         {
             rb.AddForce(transform.up * leftRotorSpeed);
-            rb.rotation += rightRotorSpeed;
+            rb.rotation += (leftRotorSpeed - rightRotorSpeed);
         }
 
         if (leftRotorSpeed <= 0 && rightRotorSpeed <= 0)
