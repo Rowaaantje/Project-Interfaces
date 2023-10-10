@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class sceneScript : MonoBehaviour
 {
-    public void loadScene(string scenename)
+    public string newSceneTrigger;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SceneManager.LoadScene(newSceneTrigger);
+        Debug.Log("clicked");
+    }
+    public void LoadScene(string scenename)
     {
         SceneManager.LoadScene(scenename); 
         Debug.Log("clicked");
