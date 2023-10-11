@@ -6,20 +6,24 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-    public float leftRotorSpeed;
-    public float rightRotorSpeed;
+    //public float leftRotorSpeed = 0.0f;
+    //public float rightRotorSpeed = 0.0f;
+    public float forwardSpeed = 1.0f;
+    public float backwardSpeed = 0.5f;
+    public float rotationspeed = 100.0f;
     
     public Rigidbody2D rb;
 
-    public GameObject leftParticleSyst;
-    public GameObject rightParticleSyst;
+    public GameObject ParticleSyst1;
+    public GameObject ParticleSyst2;
 
     //public Transform cameraloc;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ParticleSyst1.SetActive(true);
+        ParticleSyst2.SetActive(true);
     }
 
     // Update is called once per frame
@@ -42,62 +46,36 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        if (leftRotorSpeed <= 1)
+        
+        if(Input.GetKey(KeyCode.W))
         {
-            //Left Rotor speed forwards
-            if (Input.GetKey(KeyCode.W))
-            {
-                leftRotorSpeed += (float)0.01;
-                leftParticleSyst.SetActive(true);
-            }
-        } 
-        if (rightRotorSpeed <= 1)
-        {
-            //Right Rotor speed forwards
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                rightRotorSpeed += (float)0.01;
-                rightParticleSyst.SetActive(true);
-            }
+            rb.AddForce(transform.up * forwardSpeed);
         }
 
-        if (leftRotorSpeed >= -0.25 )
+        if (Input.GetKey(KeyCode.S))
         {
-            //Left Rotor speed backwards
-            if (Input.GetKey(KeyCode.S))
-            {
-                leftRotorSpeed -= (float)0.001;
-            }
-        }
-        if (rightRotorSpeed >= -0.25)
-        {
-            //Right Rotor speed backwards
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                rightRotorSpeed -= (float)0.001;
-            }
+            rb.AddForce(-transform.up * backwardSpeed);
         }
 
-        if (rightRotorSpeed >= 0 && leftRotorSpeed >= 0)
+        if(rb.velocity.magnitude > forwardSpeed)
         {
-            rb.AddForce(transform.up * (rightRotorSpeed + leftRotorSpeed));
+            rb.velocity = (Vector2)Vector3.ClampMagnitude((Vector3)rb.velocity, forwardSpeed);
+        }
+        if (rb.velocity.magnitude > backwardSpeed)
+        {
+            rb.velocity = (Vector2)Vector3.ClampMagnitude((Vector3)rb.velocity, backwardSpeed);
         }
 
-        if (rightRotorSpeed >= leftRotorSpeed)
+
+        if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(transform.up * rightRotorSpeed);
-            rb.rotation -= (rightRotorSpeed - leftRotorSpeed);
-        }
-        if (rightRotorSpeed <= leftRotorSpeed)
-        {
-            rb.AddForce(transform.up * leftRotorSpeed);
-            rb.rotation += (leftRotorSpeed - rightRotorSpeed);
+            transform.Rotate(0, 0, rotationspeed * Time.deltaTime);
         }
 
-        if (leftRotorSpeed <= 0 && rightRotorSpeed <= 0)
-        {
-            rb.AddForce(transform.up * (rightRotorSpeed + leftRotorSpeed));
-        }
 
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(0, 0, -rotationspeed * Time.deltaTime);
+        }
     }
 }
