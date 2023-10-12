@@ -427,11 +427,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8546546165247786180, guid: 9a93b3c80235d424c8ddc196dfaa1403, type: 3}
       propertyPath: forwardSpeed
-      value: 400
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8546546165247786180, guid: 9a93b3c80235d424c8ddc196dfaa1403, type: 3}
       propertyPath: backwardSpeed
-      value: 160
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546546165247786180, guid: 9a93b3c80235d424c8ddc196dfaa1403, type: 3}
+      propertyPath: rotationspeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546546165247786181, guid: 9a93b3c80235d424c8ddc196dfaa1403, type: 3}
+      propertyPath: m_LinearDrag
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8546546164916157422, guid: 9a93b3c80235d424c8ddc196dfaa1403, type: 3}
