@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     public GameObject ParticleSyst1;
     public GameObject ParticleSyst2;
 
+    private float y;
+    private float x;
+
     //public Transform cameraloc;
 
     // Start is called before the first frame update
@@ -46,6 +49,13 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        y = Input.GetAxis("Vertical");
+        x = Input.GetAxis("Horizontal") * rotationspeed;
+        Debug.Log("Left: " + y);
+        Debug.Log("Right: " + x);
+        rb.velocity = transform.up * y;
+        transform.Rotate(0, 0, x * Time.deltaTime);
+
         
         if(Input.GetKey(KeyCode.W))
         {
@@ -57,7 +67,7 @@ public class Player : MonoBehaviour
             rb.AddForce(-transform.up * backwardSpeed);
         }
 
-        if(rb.velocity.magnitude > forwardSpeed)
+        if (rb.velocity.magnitude > forwardSpeed)
         {
             rb.velocity = (Vector2)Vector3.ClampMagnitude((Vector3)rb.velocity, forwardSpeed);
         }
