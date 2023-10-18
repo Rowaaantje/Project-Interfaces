@@ -29,5 +29,6 @@ public class Gun : MonoBehaviour
 
         Ray attack = new Ray(transform.position, transform.forward * gunrange);
         Debug.DrawRay(transform.position, transform.forward * gunrange, Color.red);
+        
     }
 }
