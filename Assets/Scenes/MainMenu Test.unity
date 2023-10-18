@@ -472,38 +472,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 12.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: 0.050386302
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -4.30008
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: 0.39804947
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: -4.300187
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 1.5027891
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: -5.7222066
-      objectReference: {fileID: 0}
     - target: {fileID: 7457526479477732883, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: m_Name
       value: The Better Player
@@ -518,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457526479477732886, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -17.4
       objectReference: {fileID: 0}
     - target: {fileID: 7457526479477732886, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -555,6 +523,14 @@ PrefabInstance:
     - target: {fileID: 7457526479477732886, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457526479477732887, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
+      propertyPath: Thrust
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457526479477732887, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
+      propertyPath: MaxRotation
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
@@ -657,28 +633,38 @@ EdgeCollider2D:
   - {x: -1, y: 3}
   - {x: -1, y: 2.5}
   - {x: -1, y: 2.5}
-  - {x: -4.8999505, y: 7.2874184}
-  - {x: -5.0096636, y: 6.478284}
-  - {x: -5.037092, y: 7.1639915}
-  - {x: -5.3525176, y: 6.478285}
-  - {x: -5.2702327, y: 7.122849}
-  - {x: -5.640515, y: 6.3274283}
-  - {x: -5.517087, y: 7.1639915}
-  - {x: -5.997082, y: 6.3}
-  - {x: -5.8599405, y: 7.136563}
-  - {x: -6.3536496, y: 6.204001}
-  - {x: -6.504505, y: 7.2051334}
-  - {x: -6.723932, y: 6.1080027}
-  - {x: -6.9022155, y: 7.205134}
-  - {x: -7.053071, y: 6.094288}
-  - {x: -7.231355, y: 6.917137}
-  - {x: -7.889634, y: 6.149144}
-  - {x: -7.670208, y: 7.163991}
-  - {x: -8.479342, y: 6.2314296}
-  - {x: -8.959337, y: 7.2874184}
-  - {x: -9.151335, y: 6.0257173}
-  - {x: -9.590188, y: 6.697711}
-  - {x: -9.562759, y: 6.9857073}
+  - {x: -1, y: 2.5}
+  - {x: -1, y: 2.5}
+  - {x: -1, y: 2.5}
+  - {x: -1, y: 2.5}
+  - {x: -1.1, y: 2.5}
+  - {x: -1.1, y: 2}
+  - {x: -1.2, y: 2}
+  - {x: -1.2, y: 1.4}
+  - {x: -1.3, y: 1.4}
+  - {x: -1.3, y: 0.7}
+  - {x: -1.4, y: 0.7}
+  - {x: -1.4, y: -0.5}
+  - {x: -1.5, y: -0.5}
+  - {x: -1.5, y: -1.1}
+  - {x: -1.8, y: -1.1}
+  - {x: -1.8, y: -1.2}
+  - {x: -1.9, y: -1.2}
+  - {x: -1.9, y: -1.7}
+  - {x: -1.8, y: -1.7}
+  - {x: -1.8, y: -1.8}
+  - {x: -1.5, y: -1.8}
+  - {x: -1.5, y: -2.2}
+  - {x: -1.6, y: -2.2}
+  - {x: -1.6, y: -4.2}
+  - {x: -1.5, y: -4.2}
+  - {x: -1.5, y: -6.2}
+  - {x: -1.4, y: -6.2}
+  - {x: -1.4, y: -6.3}
+  - {x: -0.5, y: -6.3}
+  - {x: -0.5, y: -6.2}
+  - {x: -0.4, y: -6.2}
+  - {x: -0.4, y: -4.7}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
