@@ -8,11 +8,13 @@ using UnityEngine.UIElements;
 public class PlayerTest : MonoBehaviour
 {
     public Rigidbody2D Ship;
-    public float RotationSpeed;
-    public float LeftThrust;
-    public float RightThrust;
+    public float MaxRotation;
     public float Thrust;
-    public int damp = 20;
+    private float RotationSpeed;
+    private float LeftThrust;
+    private float RightThrust;
+    private float RotateThrustSpeed = 0.25f;
+    
 
     void Start()
     {
@@ -20,27 +22,35 @@ public class PlayerTest : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey("e") && RightThrust < 100)
+        if(Input.GetKey("e") && RightThrust < MaxRotation)
         {
-            RightThrust += 1;
+            RightThrust += RotateThrustSpeed;
 
         }
-        if (Input.GetKey("d") && RightThrust > -100)
+        if (Input.GetKey("d") && RightThrust > -MaxRotation)
         {
-            RightThrust -= 1;
+            RightThrust -= RotateThrustSpeed;
 
         }
-        if (Input.GetKey("w") && LeftThrust < 100)
+        if (Input.GetKey("w") && LeftThrust < MaxRotation)
         {
-            LeftThrust += 1;
+            LeftThrust += RotateThrustSpeed;
         }
-        if (Input.GetKey("s") && LeftThrust > -100)
+        if (Input.GetKey("s") && LeftThrust > -MaxRotation)
         {
-            LeftThrust -= 1;
+            LeftThrust -= RotateThrustSpeed;
         }
         RotationSpeed = RightThrust + (LeftThrust * -1);
         Ship.rotation += RotationSpeed * Time.deltaTime;
-        Thrust = (RightThrust + LeftThrust) * 1.5f;
+        if ((RightThrust + LeftThrust) > 0)
+        {
+            Thrust = 10 * math.pow((RightThrust + LeftThrust), 0.75f);
+        }
+        else
+        {
+            Thrust = -1*(10 * math.pow(((RightThrust + LeftThrust)*-1), 0.7f));
+        }
+        
         Ship.transform.position += transform.up * Thrust * Time.deltaTime;
     }
 }
