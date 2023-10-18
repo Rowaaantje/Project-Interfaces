@@ -22,6 +22,7 @@ public class PlayerTest : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Input.GetAxis("LeftHandle"));
         if(Input.GetKey("e") && RightThrust < MaxRotation)
         {
             RightThrust += RotateThrustSpeed;
