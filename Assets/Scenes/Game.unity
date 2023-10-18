@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Circle: {fileID: 6389339579250284831}
   Square: {fileID: 2591708609199270922}
-  Amount: 5000
+  Amount: 1000
 --- !u!4 &724985721
 Transform:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890531615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.302, y: 0.014, z: 0}
+  m_LocalPosition: {x: 4.097, y: -0.054, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10762,136 +10762,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!68 &818777923818602429
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457526479832756986}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.4, y: -4.7}
-  - {x: -0.3, y: -4.7}
-  - {x: -0.3, y: -4.3}
-  - {x: 0, y: -4.3}
-  - {x: 0.4, y: -4.3}
-  - {x: 0.4, y: -4.7}
-  - {x: 0.5, y: -4.7}
-  - {x: 0.5, y: -6.2}
-  - {x: 0.6, y: -6.2}
-  - {x: 0.6, y: -6.3}
-  - {x: 1.5, y: -6.3}
-  - {x: 1.5, y: -6.2}
-  - {x: 1.6, y: -6.2}
-  - {x: 1.6, y: -4.2}
-  - {x: 1.7, y: -4.2}
-  - {x: 1.7, y: -2.2}
-  - {x: 1.6, y: -2.2}
-  - {x: 1.6, y: -1.8}
-  - {x: 1.9, y: -1.8}
-  - {x: 1.9, y: -1.7}
-  - {x: 2, y: -1.7}
-  - {x: 2, y: -1.2}
-  - {x: 1.9, y: -1.2}
-  - {x: 1.9, y: -1.1}
-  - {x: 1.6, y: -1.1}
-  - {x: 1.6, y: -0.5}
-  - {x: 1.5, y: -0.5}
-  - {x: 1.5, y: 0.7}
-  - {x: 1.4, y: 0.7}
-  - {x: 1.4, y: 1.4}
-  - {x: 1.3, y: 1.4}
-  - {x: 1.3, y: 2}
-  - {x: 1.2, y: 2}
-  - {x: 1.2, y: 2}
-  - {x: 1.2, y: 2.5}
-  - {x: 1.1, y: 2.5}
-  - {x: 1.1, y: 3}
-  - {x: 1, y: 3}
-  - {x: 1, y: 3.5}
-  - {x: 1, y: 3.5}
-  - {x: 0.9, y: 3.5}
-  - {x: 0.9, y: 4}
-  - {x: 0.9, y: 4}
-  - {x: 0.8, y: 4}
-  - {x: 0.8, y: 4.5}
-  - {x: 0.7, y: 4.5}
-  - {x: 0.7, y: 5}
-  - {x: 0.6, y: 5}
-  - {x: 0.6, y: 5.3}
-  - {x: 0.5, y: 5.3}
-  - {x: 0.5, y: 5.6}
-  - {x: 0.4, y: 5.6}
-  - {x: 0.4, y: 5.9}
-  - {x: 0.3, y: 5.9}
-  - {x: 0.3, y: 6.2}
-  - {x: 0.2, y: 6.2}
-  - {x: 0.2, y: 6.3}
-  - {x: -0.1, y: 6.3}
-  - {x: -0.1, y: 6.2}
-  - {x: -0.2, y: 6.2}
-  - {x: -0.2, y: 5.9}
-  - {x: -0.3, y: 5.9}
-  - {x: -0.3, y: 5.6}
-  - {x: -0.4, y: 5.6}
-  - {x: -0.4, y: 5.3}
-  - {x: -0.5, y: 5.3}
-  - {x: -0.5, y: 5}
-  - {x: -0.6, y: 5}
-  - {x: -0.6, y: 4.5}
-  - {x: -0.7, y: 4.5}
-  - {x: -0.7, y: 4}
-  - {x: -0.8, y: 4}
-  - {x: -0.8, y: 3.5}
-  - {x: -0.9, y: 3.5}
-  - {x: -0.9, y: 3}
-  - {x: -1, y: 3}
-  - {x: -1, y: 2.5}
-  - {x: -1, y: 2.5}
-  - {x: -1, y: 2.5}
-  - {x: -1, y: 2.5}
-  - {x: -1, y: 2.5}
-  - {x: -1, y: 2.5}
-  - {x: -1.1, y: 2.5}
-  - {x: -1.1, y: 2}
-  - {x: -1.2, y: 2}
-  - {x: -1.2, y: 1.4}
-  - {x: -1.3, y: 1.4}
-  - {x: -1.3, y: 0.7}
-  - {x: -1.4, y: 0.7}
-  - {x: -1.4, y: -0.5}
-  - {x: -1.5, y: -0.5}
-  - {x: -1.5, y: -1.1}
-  - {x: -1.8, y: -1.1}
-  - {x: -1.8, y: -1.2}
-  - {x: -1.9, y: -1.2}
-  - {x: -1.9, y: -1.7}
-  - {x: -1.8, y: -1.7}
-  - {x: -1.8, y: -1.8}
-  - {x: -1.5, y: -1.8}
-  - {x: -1.5, y: -2.2}
-  - {x: -1.6, y: -2.2}
-  - {x: -1.6, y: -4.2}
-  - {x: -1.5, y: -4.2}
-  - {x: -1.5, y: -6.2}
-  - {x: -1.4, y: -6.2}
-  - {x: -1.4, y: -6.3}
-  - {x: -0.5, y: -6.3}
-  - {x: -0.5, y: -6.2}
-  - {x: -0.4, y: -6.2}
-  - {x: -0.4, y: -4.7}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &2591708609199270922
 GameObject:
   m_ObjectHideFlags: 0
@@ -11609,7 +11479,7 @@ GameObject:
   - component: {fileID: 7457526479832756990}
   - component: {fileID: 7457526479832756989}
   - component: {fileID: 7457526479832756988}
-  - component: {fileID: 818777923818602429}
+  - component: {fileID: 7457526479832756992}
   m_Layer: 0
   m_Name: The Better Player
   m_TagString: Untagged
@@ -11704,7 +11574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 7457526479832756988}
   MaxRotation: 75
-  ThrustSpeed: 0
+  ThrustSpeed: 0.2
   Thrust: 0
 --- !u!4 &7457526479832756991
 Transform:
@@ -11723,6 +11593,71 @@ Transform:
   m_Father: {fileID: 1321397510}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &7457526479832756992
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7457526479832756986}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.4, y: -4.3}
+  - {x: 0.4, y: -4.7}
+  - {x: 0.5, y: -6.3}
+  - {x: 1.6, y: -6.3}
+  - {x: 1.7, y: -4.2}
+  - {x: 1.7, y: -2.2}
+  - {x: 2, y: -1.7}
+  - {x: 2, y: -1.2}
+  - {x: 1.9, y: -1.1}
+  - {x: 1.6, y: -0.5}
+  - {x: 1.5, y: 0.7}
+  - {x: 1.4, y: 1.4}
+  - {x: 1.3, y: 2}
+  - {x: 1.2, y: 2.5}
+  - {x: 1.1, y: 3}
+  - {x: 1, y: 3.5}
+  - {x: 0.9, y: 4}
+  - {x: 0.8, y: 4.5}
+  - {x: 0.7, y: 5}
+  - {x: 0.3, y: 6.2}
+  - {x: 0.2, y: 6.3}
+  - {x: -0.1, y: 6.3}
+  - {x: -0.2, y: 6.2}
+  - {x: -0.6, y: 5}
+  - {x: -0.7, y: 4.5}
+  - {x: -0.8, y: 4}
+  - {x: -0.9, y: 3.5}
+  - {x: -1, y: 3}
+  - {x: -1.1, y: 2.5}
+  - {x: -1.2, y: 2}
+  - {x: -1.3, y: 1.4}
+  - {x: -1.4, y: 0.7}
+  - {x: -1.5, y: -0.5}
+  - {x: -1.8, y: -1.1}
+  - {x: -1.9, y: -1.2}
+  - {x: -1.9, y: -1.7}
+  - {x: -1.8, y: -1.8}
+  - {x: -1.6, y: -2.2}
+  - {x: -1.6, y: -4.2}
+  - {x: -1.5, y: -6.3}
+  - {x: -0.43, y: -6.3}
+  - {x: -0.4, y: -6.2}
+  - {x: -0.3, y: -4.7}
+  - {x: -0.3, y: -4.3}
+  - {x: 0.4, y: -4.3}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!212 &8113190743497922059
 SpriteRenderer:
   m_ObjectHideFlags: 0

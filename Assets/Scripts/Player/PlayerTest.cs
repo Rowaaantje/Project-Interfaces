@@ -14,8 +14,8 @@ public class PlayerTest : MonoBehaviour
     private float RotationSpeed;
     private float LeftThrust;
     private float RightThrust;
-/*    private float RotateThrustSpeed = 0.25f;*/
-    
+    private float RotateThrustSpeed = 0.25f;
+
 
     void Start()
     {
@@ -23,9 +23,9 @@ public class PlayerTest : MonoBehaviour
 
     void Update()
     {
-        LeftThrust = Input.GetAxis("Left")*MaxRotation;
-        RightThrust = Input.GetAxis("Right")*MaxRotation;
-        /*if (Input.GetKey("e") && RightThrust < MaxRotation)
+        /*LeftThrust = Input.GetAxis("Left") * MaxRotation;
+        RightThrust = Input.GetAxis("Right") * MaxRotation;*/
+        if (Input.GetKey("e") && RightThrust < MaxRotation)
         {
             RightThrust += RotateThrustSpeed;
         }
@@ -41,18 +41,19 @@ public class PlayerTest : MonoBehaviour
         if (Input.GetKey("s") && LeftThrust > -MaxRotation)
         {
             LeftThrust -= RotateThrustSpeed;
-        }*/
+        }
         RotationSpeed = RightThrust + (LeftThrust * -1);
         Ship.rotation += RotationSpeed * Time.deltaTime;
+        /*Thrust = math.pow((LeftThrust + RightThrust),(1/3));*/
         if ((RightThrust + LeftThrust) > 0)
         {
             Thrust = ThrustSpeed * math.pow((RightThrust + LeftThrust), 0.75f);
         }
         else
         {
-            Thrust = -1*(ThrustSpeed * math.pow(((RightThrust + LeftThrust)*-1), 0.7f));
+            Thrust = -1 * (ThrustSpeed * math.pow(((RightThrust + LeftThrust) * -1), 0.7f));
         }
-        
+
         Ship.transform.position += transform.up * Thrust * Time.deltaTime;
     }
 }
