@@ -17,7 +17,7 @@ public class PlayerTest : MonoBehaviour
     private float _rightThrust;
     private const float RotateThrustSpeed = 0.25f;
 
-    public void game_math()
+    public void Game_math()
     {
         _rotationSpeed = _rightThrust + (_leftThrust * -1);
         Ship.rotation += _rotationSpeed * Time.deltaTime;
@@ -27,10 +27,10 @@ public class PlayerTest : MonoBehaviour
         }
         else
         {
-            float inverse = -1 * (_leftThrust + _rightThrust);
+            var inverse = -1 * (_leftThrust + _rightThrust);
             Thrust = ((-1 * ((float)math.pow(x: inverse, y: Math.Sqrt(3)))) * 0.001f) * ThrustSpeed;
         }
-        Ship.transform.position += transform.up * Thrust * Time.deltaTime;
+        Ship.transform.position += Thrust * Time.deltaTime * transform.up;
     }
 
     void Update()
@@ -39,28 +39,28 @@ public class PlayerTest : MonoBehaviour
         {
             _leftThrust = Input.GetAxis("Left") * MaxRotation;
             _rightThrust = Input.GetAxis("Right") * MaxRotation;
-            game_math();
+            Game_math();
         }
         else
         {
-            if (Input.GetKey("e") && _rightThrust < MaxRotation)
+            if (Input.GetKey(KeyCode.E) && _rightThrust < MaxRotation)
             {
                 _rightThrust += RotateThrustSpeed;
             }
-            if (Input.GetKey("d") && _rightThrust > -MaxRotation)
+            if (Input.GetKey(KeyCode.D) && _rightThrust > -MaxRotation)
             {
                 _rightThrust -= RotateThrustSpeed;
 
             }
-            if (Input.GetKey("w") && _leftThrust < MaxRotation)
+            if (Input.GetKey(KeyCode.W) && _leftThrust < MaxRotation)
             {
                 _leftThrust += RotateThrustSpeed;
             }
-            if (Input.GetKey("s") && _leftThrust > -MaxRotation)
+            if (Input.GetKey(KeyCode.S) && _leftThrust > -MaxRotation)
             {
                 _leftThrust -= RotateThrustSpeed;
             }
-            game_math();
+            Game_math();
         }
     }
 }
