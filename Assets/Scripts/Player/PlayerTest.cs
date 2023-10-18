@@ -12,57 +12,55 @@ public class PlayerTest : MonoBehaviour
     public float MaxRotation;
     public float ThrustSpeed;
     public float Thrust;
-    private float RotationSpeed;
-    private float LeftThrust;
-    private float RightThrust;
-    private float RotateThrustSpeed = 0.25f;
+    private float _rotationSpeed;
+    private float _leftThrust;
+    private float _rightThrust;
+    private const float RotateThrustSpeed = 0.25f;
 
-
-    void Start()
+    public void game_math()
     {
+        _rotationSpeed = _rightThrust + (_leftThrust * -1);
+        Ship.rotation += _rotationSpeed * Time.deltaTime;
+        if (_leftThrust + _rightThrust > 0)
+        {
+            Thrust = (((float)math.pow(x: _leftThrust + _rightThrust, y: Math.Sqrt(3))) * 0.0015f) * ThrustSpeed;
+        }
+        else
+        {
+            float inverse = -1 * (_leftThrust + _rightThrust);
+            Thrust = ((-1 * ((float)math.pow(x: inverse, y: Math.Sqrt(3)))) * 0.001f) * ThrustSpeed;
+        }
+        Ship.transform.position += transform.up * Thrust * Time.deltaTime;
     }
 
     void Update()
     {
-        /*LeftThrust = Input.GetAxis("Left") * MaxRotation;
-        RightThrust = Input.GetAxis("Right") * MaxRotation;*/
-        if (Input.GetKey("e") && RightThrust < MaxRotation)
+        if (Input.GetAxis("Left") != 0f || Input.GetAxis("Right") != 0f)
         {
-            RightThrust += RotateThrustSpeed;
-        }
-        if (Input.GetKey("d") && RightThrust > -MaxRotation)
-        {
-            RightThrust -= RotateThrustSpeed;
-
-        }
-        if (Input.GetKey("w") && LeftThrust < MaxRotation)
-        {
-            LeftThrust += RotateThrustSpeed;
-        }
-        if (Input.GetKey("s") && LeftThrust > -MaxRotation)
-        {
-            LeftThrust -= RotateThrustSpeed;
-        }
-        RotationSpeed = RightThrust + (LeftThrust * -1);
-        Ship.rotation += RotationSpeed * Time.deltaTime;
-        if (LeftThrust + RightThrust > 0)
-        {
-            Thrust = (((float)math.pow(x: LeftThrust + RightThrust, y: Math.Sqrt(3)))*0.0015f)*ThrustSpeed;
+            _leftThrust = Input.GetAxis("Left") * MaxRotation;
+            _rightThrust = Input.GetAxis("Right") * MaxRotation;
+            game_math();
         }
         else
         {
-            float inverse = -1 * (LeftThrust + RightThrust);
-            Thrust = ((-1*((float)math.pow(x: inverse, y: Math.Sqrt(3))))*0.001f)*ThrustSpeed;
-        }
-        /*if ((RightThrust + LeftThrust) > 0)
-        {
-            Thrust = ThrustSpeed * math.pow((RightThrust + LeftThrust), 0.75f);
-        }
-        else
-        {
-            Thrust = -1 * (ThrustSpeed * math.pow(((RightThrust + LeftThrust) * -1), 0.7f));
-        }*/
+            if (Input.GetKey("e") && _rightThrust < MaxRotation)
+            {
+                _rightThrust += RotateThrustSpeed;
+            }
+            if (Input.GetKey("d") && _rightThrust > -MaxRotation)
+            {
+                _rightThrust -= RotateThrustSpeed;
 
-        Ship.transform.position += transform.up * Thrust * Time.deltaTime;
+            }
+            if (Input.GetKey("w") && _leftThrust < MaxRotation)
+            {
+                _leftThrust += RotateThrustSpeed;
+            }
+            if (Input.GetKey("s") && _leftThrust > -MaxRotation)
+            {
+                _leftThrust -= RotateThrustSpeed;
+            }
+            game_math();
+        }
     }
 }
