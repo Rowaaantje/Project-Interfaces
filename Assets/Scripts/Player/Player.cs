@@ -55,7 +55,6 @@ public class Player : MonoBehaviour
         Debug.Log("Right: " + x);
         rb.velocity = transform.up * y;
         transform.Rotate(0, 0, x * Time.deltaTime);
-
         
         if(Input.GetKey(KeyCode.W))
         {
