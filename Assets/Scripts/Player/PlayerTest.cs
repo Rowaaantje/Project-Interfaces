@@ -9,11 +9,12 @@ public class PlayerTest : MonoBehaviour
 {
     public Rigidbody2D Ship;
     public float MaxRotation;
-    public float Thrust;
+    public float ThrustSpeed;
+    private float Thrust;
     private float RotationSpeed;
     private float LeftThrust;
     private float RightThrust;
-    private float RotateThrustSpeed = 0.25f;
+/*    private float RotateThrustSpeed = 0.25f;*/
     
 
     void Start()
@@ -24,7 +25,7 @@ public class PlayerTest : MonoBehaviour
     {
         LeftThrust = Input.GetAxis("Left")*MaxRotation;
         RightThrust = Input.GetAxis("Right")*MaxRotation;
-        if (Input.GetKey("e") && RightThrust < MaxRotation)
+        /*if (Input.GetKey("e") && RightThrust < MaxRotation)
         {
             RightThrust += RotateThrustSpeed;
         }
@@ -40,16 +41,16 @@ public class PlayerTest : MonoBehaviour
         if (Input.GetKey("s") && LeftThrust > -MaxRotation)
         {
             LeftThrust -= RotateThrustSpeed;
-        }
+        }*/
         RotationSpeed = RightThrust + (LeftThrust * -1);
         Ship.rotation += RotationSpeed * Time.deltaTime;
         if ((RightThrust + LeftThrust) > 0)
         {
-            Thrust = 10 * math.pow((RightThrust + LeftThrust), 0.75f);
+            Thrust = ThrustSpeed * math.pow((RightThrust + LeftThrust), 0.75f);
         }
         else
         {
-            Thrust = -1*(10 * math.pow(((RightThrust + LeftThrust)*-1), 0.7f));
+            Thrust = -1*(ThrustSpeed * math.pow(((RightThrust + LeftThrust)*-1), 0.7f));
         }
         
         Ship.transform.position += transform.up * Thrust * Time.deltaTime;

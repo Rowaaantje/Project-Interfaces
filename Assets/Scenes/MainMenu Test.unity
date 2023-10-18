@@ -486,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457526479477732886, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7457526479477732886, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -531,6 +531,10 @@ PrefabInstance:
     - target: {fileID: 7457526479477732887, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
       propertyPath: MaxRotation
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457526479477732887, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
+      propertyPath: ThrustSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988a6be9e495e0447a26336ff6a6bce4, type: 3}
