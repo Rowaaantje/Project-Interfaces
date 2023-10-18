@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -44,15 +45,23 @@ public class PlayerTest : MonoBehaviour
         }
         RotationSpeed = RightThrust + (LeftThrust * -1);
         Ship.rotation += RotationSpeed * Time.deltaTime;
-        /*Thrust = math.pow((LeftThrust + RightThrust),(1/3));*/
-        if ((RightThrust + LeftThrust) > 0)
+        if (LeftThrust + RightThrust > 0)
+        {
+            Thrust = (((float)math.pow(x: LeftThrust + RightThrust, y: Math.Sqrt(3)))*0.0015f)*ThrustSpeed;
+        }
+        else
+        {
+            float inverse = -1 * (LeftThrust + RightThrust);
+            Thrust = ((-1*((float)math.pow(x: inverse, y: Math.Sqrt(3))))*0.001f)*ThrustSpeed;
+        }
+        /*if ((RightThrust + LeftThrust) > 0)
         {
             Thrust = ThrustSpeed * math.pow((RightThrust + LeftThrust), 0.75f);
         }
         else
         {
             Thrust = -1 * (ThrustSpeed * math.pow(((RightThrust + LeftThrust) * -1), 0.7f));
-        }
+        }*/
 
         Ship.transform.position += transform.up * Thrust * Time.deltaTime;
     }

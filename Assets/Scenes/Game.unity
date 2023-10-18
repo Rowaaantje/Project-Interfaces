@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Circle: {fileID: 6389339579250284831}
   Square: {fileID: 2591708609199270922}
-  Amount: 1000
+  Amount: 3000
 --- !u!4 &724985721
 Transform:
   m_ObjectHideFlags: 0
@@ -11574,7 +11574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 7457526479832756988}
   MaxRotation: 75
-  ThrustSpeed: 0.2
+  ThrustSpeed: 1
   Thrust: 0
 --- !u!4 &7457526479832756991
 Transform:

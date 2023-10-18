@@ -9,7 +9,7 @@ public class TestPositioner : MonoBehaviour
 
     void Start()
     {
-        Entity.transform.position = new Vector2(Random.Range(-1000f, 1000f), Random.Range(-1000f, 1000f));
+        Entity.transform.position = new Vector2(Random.Range(-963f, 963f), Random.Range(-963f, 963f));
     }
 
     // Update is called once per frame
