@@ -10,7 +10,7 @@ public class PlayerTest : MonoBehaviour
     public Rigidbody2D Ship;
     public float MaxRotation;
     public float ThrustSpeed;
-    private float Thrust;
+    public float Thrust;
     private float RotationSpeed;
     private float LeftThrust;
     private float RightThrust;
