@@ -497,9 +497,9 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 5
+    axis: 0
     joyNum: 0
   - serializedVersion: 3
     m_Name: Left
@@ -513,8 +513,8 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 5
+    axis: 1
     joyNum: 0
   m_UsePhysicalKeys: 0
