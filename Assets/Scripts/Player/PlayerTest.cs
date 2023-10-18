@@ -22,12 +22,11 @@ public class PlayerTest : MonoBehaviour
 
     void Update()
     {
-        RightThrust = Input.GetAxis("RightHandle") * 90;
-        LeftThrust = Input.GetAxis("LeftHandle") * 90;
+        LeftThrust = Input.GetAxis("Left")*MaxRotation;
+        RightThrust = Input.GetAxis("Right")*MaxRotation;
         if (Input.GetKey("e") && RightThrust < MaxRotation)
         {
             RightThrust += RotateThrustSpeed;
-
         }
         if (Input.GetKey("d") && RightThrust > -MaxRotation)
         {
