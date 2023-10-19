@@ -11609,7 +11609,7 @@ MonoBehaviour:
   MaxRotation: 75
   ThrustSpeed: 1
   Thrust: 0
-  WarpCooldown: 5
+  WarpCooldown: 0
   CooldownTime: 0
   EnergyLevel: 0
   RangeCollider1: {fileID: 1676444891}
