@@ -12,11 +12,19 @@ public class PlayerTest : MonoBehaviour
     public float MaxRotation;
     public float ThrustSpeed;
     public float Thrust;
+    public int EnergyLevel = 1;
+    public GameObject RangeCollider1;
+    public GameObject RangeCollider2;
+    public GameObject RangeCollider3;
     private float _rotationSpeed;
     private float _leftThrust;
     private float _rightThrust;
     private const float RotateThrustSpeed = 0.25f;
 
+    public void Energy(int energy, GameObject range)
+    {
+       range.SetActive(EnergyLevel == energy);
+    }
     public void Game_math()
     {
         _rotationSpeed = _rightThrust + (_leftThrust * -1);
@@ -32,8 +40,7 @@ public class PlayerTest : MonoBehaviour
         }
         Ship.transform.position += Thrust * Time.deltaTime * transform.up;
     }
-
-    void Update()
+    public void Controller()
     {
         if (Input.GetAxis("Left") != 0f || Input.GetAxis("Right") != 0f)
         {
@@ -62,5 +69,26 @@ public class PlayerTest : MonoBehaviour
             }
             Game_math();
         }
+    }
+
+    public void Energy_manager()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && EnergyLevel < 3)
+        {
+            EnergyLevel += 1;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow) && EnergyLevel > 1)
+        {
+            EnergyLevel -= 1;
+        }
+        Energy(1, RangeCollider1);
+        Energy(2, RangeCollider2);
+        Energy(3, RangeCollider3);
+    }
+
+    void Update()
+    {
+       Controller();
+       Energy_manager();
     }
 }
