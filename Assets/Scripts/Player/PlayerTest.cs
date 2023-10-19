@@ -1,11 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerTest : MonoBehaviour
 {
@@ -21,18 +16,18 @@ public class PlayerTest : MonoBehaviour
 
     public void Energy(int energy, GameObject range)
     {
-        /*Check if parameter energy is equal to EnergyLevel to turn on the range collider*/
+        /*Check if parameter energy is equal to g to turn on the range collider*/
        range.SetActive(EnergyLevel == energy);
     }
     public void BatteryManager(bool batteryStatus)
     {
         EnergyLevel += batteryStatus ? 1 : -1;
     }
-    public void CooldownTime_manager(int Energy, float Time)
+    public void CooldownTime_manager(int energy, float time)
     {
-        if (EnergyLevel == Energy)
+        if (EnergyLevel == energy)
         {
-            CooldownTime = Time;
+            CooldownTime = time;
         }
     }
     public void CooldownCaller()
@@ -92,13 +87,12 @@ public class PlayerTest : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Q) && _leftThrust > -MaxRotation)
         {
-            WarpCooldown = CooldownTime;
             _warpActivated = true;
         }
     } 
     public void Energy_manager()
     {
-        /*Activate RangeColliders by using the Energy() function*/
+        /*Activate RangeColliders by using the energy() function*/
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _battery1 = !_battery1;
@@ -124,15 +118,17 @@ public class PlayerTest : MonoBehaviour
     public void Timer()
     {
         /*Activate timer that changes _warpActivated to true*/
-        if (!_warpActivated)return;
+        if (_warpActivated)
+        {
             WarpCooldown -= Time.deltaTime;
-            if (WarpCooldown >= 0)return;
+        }
+
+        if (!(WarpCooldown < 0))return;
             _warpActivated = false;
             WarpCooldown = CooldownTime;
             CooldownCaller();
             WarpCooldown = CooldownTime;
     }
-
     void Update()
     {
        Controller();
