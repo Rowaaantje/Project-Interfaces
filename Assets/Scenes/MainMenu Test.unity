@@ -683,7 +683,6 @@ GameObject:
   m_Component:
   - component: {fileID: 220325396}
   - component: {fileID: 220325398}
-  - component: {fileID: 220325397}
   - component: {fileID: 220325399}
   m_Layer: 0
   m_Name: Canvas
@@ -711,41 +710,6 @@ Transform:
   m_Father: {fileID: 1091602127}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!328 &220325397
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220325395}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: f74fbac28a27c0849b698881a34ca8ff, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 3
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 1
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!212 &220325398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1838,8 +1802,8 @@ GameObject:
   - component: {fileID: 1086046182}
   - component: {fileID: 1086046181}
   - component: {fileID: 1086046180}
-  - component: {fileID: 1086046184}
   - component: {fileID: 1086046183}
+  - component: {fileID: 1086046184}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1975,7 +1939,7 @@ Animator:
   m_GameObject: {fileID: 1086046179}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fa8a7674bfd694d45817d6ea167c9d83, type: 2}
+  m_Controller: {fileID: 9100000, guid: df4351c848bb0bc4bbef31f2dc6653e6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
