@@ -15,7 +15,8 @@ public class Gun : MonoBehaviour
 
     public Transform shootingPoint;
     public GameObject bulletPrefab;
-
+    public float fireRate = 0.5f;
+    public float nextfire = 0.0f;
     bool FIRE = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,12 +24,8 @@ public class Gun : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Enemy spotted");
-            enemytag = GameObject.FindWithTag("Enemy");
             targetSpotted = true;
-        }
-        else
-        {
-            targetSpotted = false;
+            enemytag = GameObject.FindWithTag("Enemy");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -37,6 +34,7 @@ public class Gun : MonoBehaviour
         {
             Debug.Log("Enemy Lost");
             RotateToNormal();
+            targetSpotted = false;
         }
     }
 
@@ -63,21 +61,23 @@ public class Gun : MonoBehaviour
     }*/
 
     // Update is called once per frame
-    void Update()
-    {
-        if(targetSpotted)
-        {
-            transform.right = enemytag.transform.position - transform.position;
-            //RotateTowardsEnemy();
-        }
-        else
-        {
-            RotateToNormal();
-        }
-    }
 
     void Shoot()
     {
         Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
+    }
+
+    void Update()
+    {
+        if (targetSpotted == true)
+        {
+            nextfire += Time.deltaTime;
+
+            transform.right = enemytag.transform.position - transform.position;
+            if(nextfire >= fireRate)
+            {
+                Shoot();
+            }
+        }
     }
 }

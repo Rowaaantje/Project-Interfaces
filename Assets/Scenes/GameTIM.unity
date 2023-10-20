@@ -10704,8 +10704,8 @@ MonoBehaviour:
   gun: {fileID: 3992969204322489626}
   gunRotationSpeed: 100
   targetSpotted: 0
-  shootingPoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  shootingPoint: {fileID: 196266937}
+  bulletPrefab: {fileID: 308721888763044963, guid: 749b0c7459cfecd4b89753d384d8a1d9, type: 3}
 --- !u!4 &3677728572020249688
 Transform:
   m_ObjectHideFlags: 0
@@ -11638,6 +11638,8 @@ MonoBehaviour:
   MaxRotation: 30
   ThrustSpeed: 0.5
   Thrust: 0
+  WarpCooldown: 0
+  CooldownTime: 0
   EnergyLevel: 1
   RangeCollider1: {fileID: 0}
   RangeCollider2: {fileID: 0}
