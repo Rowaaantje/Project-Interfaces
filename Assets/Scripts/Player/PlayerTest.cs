@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
+    
     public Rigidbody2D Ship;
     public float MaxRotation, ThrustSpeed, Thrust, WarpCooldown, CooldownTime;
     public int EnergyLevel;
@@ -13,6 +14,7 @@ public class PlayerTest : MonoBehaviour
     private float _leftThrust, _rightThrust;
     private bool _warpActivated = false;
     private const float RotateThrustSpeed = 0.25f;
+    private EdgeCollider2D _Player_Collider;
 
     public void Energy(int energy, GameObject range)
     {
@@ -129,10 +131,56 @@ public class PlayerTest : MonoBehaviour
             CooldownCaller();
             WarpCooldown = CooldownTime;
     }
+
+    public void WarpManager(float duration_1, float duration_2, float duration_3)
+    {
+        bool enableCollider = false;
+        switch (EnergyLevel)
+        {
+            case 0:
+                enableCollider = true;
+                break;
+            case 1:
+                if (WarpCooldown == CooldownTime || WarpCooldown == 0 || WarpCooldown < (CooldownTime - duration_1))
+                {
+                    enableCollider = true;
+                }
+                if (enableCollider == false)
+                {
+                    _leftThrust = 0;
+                    _rightThrust = 0;
+                }
+                break;
+            case 2:
+                if (WarpCooldown == CooldownTime || WarpCooldown == 0 || WarpCooldown < (CooldownTime - duration_2))
+                {
+                    enableCollider = true;
+                }
+                break;
+            case 3:
+                if (WarpCooldown == CooldownTime || WarpCooldown == 0 || WarpCooldown < (CooldownTime - duration_3))
+                {
+                    enableCollider = true;
+                }
+
+                if (enableCollider == false)
+                {
+                    Ship.transform.position += 5 * Time.deltaTime * transform.up;
+                }
+                break;
+        }
+        _Player_Collider.enabled = enableCollider;
+    }
+
+    void Start()
+    {
+       _Player_Collider = Ship.GetComponent<EdgeCollider2D>();
+    }
     void Update()
     {
        Controller();
        Energy_manager();
        Timer();
+       WarpManager(1f,1.5f,2f);
     }
 }
