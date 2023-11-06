@@ -87,7 +87,7 @@ public class PlayerTest : MonoBehaviour
             }
             Player_math();
         }
-        if (Input.GetKey(KeyCode.Q) && _leftThrust > -MaxRotation)
+        if (Input.GetKey(KeyCode.Q))
         {
             _warpActivated = true;
         }
@@ -165,7 +165,11 @@ public class PlayerTest : MonoBehaviour
 
                 if (enableCollider == false)
                 {
-                    Ship.transform.position += 5 * Time.deltaTime * transform.up;
+                    ThrustSpeed = 1.5f;
+                }
+                else
+                {
+                    ThrustSpeed = 1;
                 }
                 break;
         }
