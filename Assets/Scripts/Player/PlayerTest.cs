@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
-    
     public Rigidbody2D Ship;
     public float MaxRotation, ThrustSpeed, Thrust, WarpCooldown, CooldownTime;
     public int EnergyLevel;
@@ -115,7 +114,6 @@ public class PlayerTest : MonoBehaviour
         Energy(3, RangeCollider3);
         if (_warpActivated)return;
             CooldownCaller();
-        
     }
     public void Timer()
     {
@@ -131,7 +129,6 @@ public class PlayerTest : MonoBehaviour
             CooldownCaller();
             WarpCooldown = CooldownTime;
     }
-
     public void WarpManager(float duration_1, float duration_2, float duration_3)
     {
         bool enableCollider = false;
@@ -175,7 +172,6 @@ public class PlayerTest : MonoBehaviour
         }
         _Player_Collider.enabled = enableCollider;
     }
-
     void Start()
     {
        _Player_Collider = Ship.GetComponent<EdgeCollider2D>();
