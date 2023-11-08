@@ -6,15 +6,29 @@ public class PlayerTest : MonoBehaviour
 {
     public Rigidbody2D Ship;
     public float MaxRotation, ThrustSpeed, Thrust, WarpCooldown, CooldownTime;
-    public int EnergyLevel;
+    public int EnergyLevel, Fuel, Ammo;
     public GameObject RangeCollider1, RangeCollider2, RangeCollider3;
-    private bool _battery1, _battery2, _battery3;
+    private bool _battery1, _battery2, _battery3, Entered;
     private float _rotationSpeed;
     private float _leftThrust, _rightThrust;
     private bool _warpActivated = false;
     private const float RotateThrustSpeed = 0.25f;
     private EdgeCollider2D _Player_Collider;
 
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Interactable")
+        {
+            Entered = true;
+        }
+    }
+    private void OnTriggerExit2D(UnityEngine.Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Interactable")
+        {
+            Entered = false;
+        }
+    }
     public void Energy(int energy, GameObject range)
     {
         /*Check if parameter energy is equal to g to turn on the range collider*/
@@ -178,7 +192,16 @@ public class PlayerTest : MonoBehaviour
     }
     void Update()
     {
-       Controller();
+        if (Entered == true && Input.GetKey(KeyCode.T))
+        {
+            Fuel += UnityEngine.Random.Range(400, 1500);
+            Ammo += UnityEngine.Random.Range(400, 1500);
+        }
+        if (Fuel > 10000)
+        {
+            Fuel = 1000;
+        }
+        Controller();
        Energy_manager();
        Timer();
        WarpManager(1f,1.5f,2f);
