@@ -13,12 +13,6 @@ public class Gun : MonoBehaviour
     private GameObject enemytag;
     public bool targetSpotted = false;
 
-    public Transform shootingPoint;
-    public GameObject bulletPrefab;
-    public float fireRate = 0.5f;
-    public float nextfire = 0.0f;
-    bool FIRE = false;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
@@ -62,22 +56,11 @@ public class Gun : MonoBehaviour
 
     // Update is called once per frame
 
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
-    }
-
     void Update()
     {
         if (targetSpotted == true)
         {
-            nextfire += Time.deltaTime;
-
             transform.right = enemytag.transform.position - transform.position;
-            if(nextfire >= fireRate)
-            {
-                Shoot();
-            }
         }
     }
 }
