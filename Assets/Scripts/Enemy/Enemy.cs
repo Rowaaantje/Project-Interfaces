@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         Entity.transform.localScale = new Vector3(num, num, num);
         if (target == null)
             target = GameObject.FindWithTag("Player");
-        Entity.transform.position = new Vector2(Random.Range(-950f, 950f), Random.Range(-950f, 950f));
+        /*Entity.transform.position = new Vector2(Random.Range(-950f, 950f), Random.Range(-950f, 950f));*/
     }
     void Update()
     {
