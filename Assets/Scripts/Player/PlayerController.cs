@@ -1,6 +1,7 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private bool _warpActivated = false;
     private const float RotateThrustSpeed = 0.25f;
     private EdgeCollider2D _Player_Collider;
+
+    public Slider OIL_METER;
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
@@ -189,18 +192,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
        _Player_Collider = Ship.GetComponent<EdgeCollider2D>();
+       OIL_METER.value = 2500;
     }
     void Update()
     {
-/*        if (Entered == true && Input.GetKey(KeyCode.T))
-        {
-            Fuel += UnityEngine.Random.Range(400, 1500);
-            Ammo += UnityEngine.Random.Range(400, 1500);
-        }
-        if (Fuel > 10000)
-        {
-            Fuel = 10000;
-        }*/
        Controller();
        Energy_manager();
        Timer();
