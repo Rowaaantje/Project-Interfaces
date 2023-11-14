@@ -5,21 +5,13 @@ using UnityEngine;
 
 public class TestSpawner : MonoBehaviour
 {
-    public GameObject Circle;
-    public GameObject Square;
+    public GameObject A;
     public int Amount;
     void Start()
     {
         for (int i = 0; i < Amount; i++)
         {
-            Instantiate(Circle);
-            Instantiate(Square);
+            Instantiate(A);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
 }
