@@ -3,21 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-<<<<<<< HEAD
-  - Interactable
-  - Range
-=======
->>>>>>> parent of ba8383e (Revamp)
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Settings
+  - 
   - Water
   - UI
-  - PlayerLayer
+  - 
   - 
   - 
   - 
