@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour
         {
             if (!Agro) { AudioSrc.Play(); }
             Agro = true;
-            Debug.Log(collision.gameObject.tag);
         }
     }
     private void Start()
     {
         AudioClip[] clips = {a1, a2, a3, a4, a5, a6, a7};
+        AudioSrc.pitch = Random.Range(0.9f, 1f);
         AudioSrc.clip = clips[Random.Range(0, 6)];
         float num = Random.Range(0.5f, 2f);
         Entity.transform.localScale = new Vector3(num, num, num);
