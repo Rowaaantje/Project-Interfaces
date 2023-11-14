@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 472448811010551148}
   m_Layer: 0
   m_Name: The Better Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,15 +59,9 @@ MonoBehaviour:
   WarpCooldown: 0
   CooldownTime: 0
   EnergyLevel: 0
-  Fuel: 0
-  Ammo: 0
   RangeCollider1: {fileID: 1123932358243208617}
   RangeCollider2: {fileID: 1123932357573528374}
   RangeCollider3: {fileID: 4829913494700060784}
-  _battery1: 0
-  _battery2: 0
-  _battery3: 0
-  Entered: 0
 --- !u!212 &472448811010550929
 SpriteRenderer:
   m_ObjectHideFlags: 0

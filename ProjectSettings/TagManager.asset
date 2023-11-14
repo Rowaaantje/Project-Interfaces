@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+<<<<<<< HEAD
   - Interactable
   - Range
+=======
+>>>>>>> parent of ba8383e (Revamp)
   layers:
   - Default
   - TransparentFX

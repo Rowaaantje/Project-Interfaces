@@ -9,7 +9,7 @@ public class InteractableScript : MonoBehaviour
     public GameObject interactable;
     private CircleCollider2D _collider;
     private bool Entered;
-/*    private void Start()
+    private void Start()
     {
         _collider = interactable.GetComponent<CircleCollider2D>();
     }
@@ -33,5 +33,5 @@ public class InteractableScript : MonoBehaviour
         {
             Entered = false;
         }
-    }*/
+    }
 }

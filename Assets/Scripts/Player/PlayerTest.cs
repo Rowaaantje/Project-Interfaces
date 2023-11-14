@@ -2,13 +2,13 @@ using System;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerTest : MonoBehaviour
 {
     public Rigidbody2D Ship;
     public float MaxRotation, ThrustSpeed, Thrust, WarpCooldown, CooldownTime;
     public int EnergyLevel, Fuel, Ammo;
     public GameObject RangeCollider1, RangeCollider2, RangeCollider3;
-    public bool _battery1, _battery2, _battery3, Entered;
+    private bool _battery1, _battery2, _battery3, Entered;
     private float _rotationSpeed;
     private float _leftThrust, _rightThrust;
     private bool _warpActivated = false;
@@ -192,16 +192,16 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-/*        if (Entered == true && Input.GetKey(KeyCode.T))
+        if (Entered == true && Input.GetKey(KeyCode.T))
         {
             Fuel += UnityEngine.Random.Range(400, 1500);
             Ammo += UnityEngine.Random.Range(400, 1500);
         }
         if (Fuel > 10000)
         {
-            Fuel = 10000;
-        }*/
-       Controller();
+            Fuel = 1000;
+        }
+        Controller();
        Energy_manager();
        Timer();
        WarpManager(1f,1.5f,2f);
