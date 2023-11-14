@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,10 @@ public class Enemy : MonoBehaviour
     public GameObject Entity;
     private GameObject target;
     private Vector2 targetpos;
-    private bool Agro = false;
+    public AudioSource AudioSrc;
+    public AudioClip a1, a2, a3, a4, a5, a6, a7;
+    public bool Agro = false;
+    public bool Alive = true;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -17,25 +21,31 @@ public class Enemy : MonoBehaviour
         }
         if (collision.gameObject.tag == "Range")
         {
+            AudioSrc.Play();
             Agro = true;
             Debug.Log(collision.gameObject.tag);
         }
     }
     private void Start()
     {
+        AudioClip[] clips = {a1, a2, a3, a4, a5, a6, a7};
+        AudioSrc.clip = clips[Random.Range(0, 6)];
         float num = Random.Range(0.1f, 2f);
         Entity.transform.localScale = new Vector3(num, num, num);
         if (target == null)
             target = GameObject.FindWithTag("Player");
-        Entity.transform.position = new Vector2(Random.Range(-300f, 300f), Random.Range(-300f, 300f));
+        Entity.transform.position = new Vector2(Random.Range(-700f, 700f), Random.Range(-700f, 700f));
     }
     void Update()
     {
-        targetpos = target.transform.position;
-        transform.right = target.transform.position - transform.position;
-        if (Agro)
+        if (Alive == true)
         {
-            Entity.transform.position = Vector2.MoveTowards(transform.position, targetpos, 1 * Time.deltaTime);
+            targetpos = target.transform.position;
+            transform.right = target.transform.position - transform.position;
+            if (Agro == true)
+            {
+                Entity.transform.position = Vector2.MoveTowards(transform.position, targetpos, 1 * Time.deltaTime);
+            }
         }
     }
 }
