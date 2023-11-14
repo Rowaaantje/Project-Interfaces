@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         }
         if (collision.gameObject.tag == "Range")
         {
-            AudioSrc.Play();
+            if (!Agro) { AudioSrc.Play(); }
             Agro = true;
             Debug.Log(collision.gameObject.tag);
         }
@@ -30,11 +30,11 @@ public class Enemy : MonoBehaviour
     {
         AudioClip[] clips = {a1, a2, a3, a4, a5, a6, a7};
         AudioSrc.clip = clips[Random.Range(0, 6)];
-        float num = Random.Range(0.1f, 2f);
+        float num = Random.Range(0.5f, 2f);
         Entity.transform.localScale = new Vector3(num, num, num);
         if (target == null)
             target = GameObject.FindWithTag("Player");
-        Entity.transform.position = new Vector2(Random.Range(-700f, 700f), Random.Range(-700f, 700f));
+        Entity.transform.position = new Vector2(Random.Range(-950f, 950f), Random.Range(-950f, 950f));
     }
     void Update()
     {
