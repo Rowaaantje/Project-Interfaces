@@ -14,7 +14,7 @@ public class Radar : MonoBehaviour
    private float rotationSpeed;
    private float radarDistance;
    private List<Collider2D> colliderList;
-
+    private int LayerMask = 1 << 6;
 
    private void Awake(){
         sweepTransform = transform.Find("Sweep");
@@ -33,7 +33,7 @@ public class Radar : MonoBehaviour
             //half rotation
             colliderList.Clear();
         }
-       RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, UtilsClass.GetVectorFromAngle(sweepTransform.eulerAngles.z), radarDistance);
+       RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, UtilsClass.GetVectorFromAngle(sweepTransform.eulerAngles.z), radarDistance, LayerMask);
         if (raycastHit2D.collider != null){
             //hit some
             if(!colliderList.Contains(raycastHit2D.collider)){
