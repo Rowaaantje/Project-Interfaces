@@ -7,14 +7,17 @@ using Unity.Mathematics;
 
 public class Radar : MonoBehaviour
 {
+    RadarPing radarPing;
 
     [SerializeField] private Transform pfRadarPing;
+    [SerializeField] private LayerMask layerMask;
+    // private int layerMask = 1 << 6; 
+
 
    private Transform sweepTransform;
-   private float rotationSpeed;
-   private float radarDistance;
+   public float rotationSpeed;
+   public float radarDistance;
    private List<Collider2D> colliderList;
-    private int LayerMask = 1 << 6;
 
    private void Awake(){
         sweepTransform = transform.Find("Sweep");
@@ -33,7 +36,8 @@ public class Radar : MonoBehaviour
             //half rotation
             colliderList.Clear();
         }
-       RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, UtilsClass.GetVectorFromAngle(sweepTransform.eulerAngles.z), radarDistance, LayerMask);
+
+       RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, UtilsClass.GetVectorFromAngle(sweepTransform.eulerAngles.z), radarDistance, layerMask);
         if (raycastHit2D.collider != null){
             //hit some
             if(!colliderList.Contains(raycastHit2D.collider)){
@@ -43,9 +47,21 @@ public class Radar : MonoBehaviour
                 Instantiate(pfRadarPing, raycastHit2D.point, quaternion.identity);
             }
         }
+        // radarPing.SetDisappearTimer(360 / rotationSpeed * 2f);
 
+
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            rotationSpeed += 20;
+            Debug.Log("rotationSpeed " + rotationSpeed);
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            rotationSpeed -= 20;
+            Debug.Log("rotationSpeed " + rotationSpeed);
+        }
     }
-
 }
 
 
