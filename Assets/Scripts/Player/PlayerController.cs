@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    Radar radar;
     public Rigidbody2D Ship;
     public float MaxRotation, ThrustSpeed, Thrust, WarpCooldown, CooldownTime;
     public int EnergyLevel, Fuel, Ammo;
@@ -152,9 +153,11 @@ public class PlayerController : MonoBehaviour
         switch (EnergyLevel)
         {
             case 0:
+                radar.ChangeSpeed(40f);
                 enableCollider = true;
                 break;
             case 1:
+                radar.ChangeSpeed(80f);
                 if (WarpCooldown == CooldownTime || WarpCooldown == 0 || WarpCooldown < (CooldownTime - duration_1))
                 {
                     enableCollider = true;
@@ -166,12 +169,14 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case 2:
+                radar.ChangeSpeed(160f);
                 if (WarpCooldown == CooldownTime || WarpCooldown == 0 || WarpCooldown < (CooldownTime - duration_2))
                 {
                     enableCollider = true;
                 }
                 break;
             case 3:
+                radar.ChangeSpeed(360f);
                 if (WarpCooldown == CooldownTime || WarpCooldown == 0 || WarpCooldown < (CooldownTime - duration_3))
                 {
                     enableCollider = true;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 using Unity.Mathematics;
-
+using JetBrains.Annotations;
 
 public class Radar : MonoBehaviour
 {
@@ -15,14 +15,13 @@ public class Radar : MonoBehaviour
 
 
    private Transform sweepTransform;
-   public float rotationSpeed;
-   public float radarDistance;
+   public float rotationSpeed = 180f;
+   private float radarDistance = 3000f;
    private List<Collider2D> colliderList;
 
    private void Awake(){
+        rotationSpeed = 180f;
         sweepTransform = transform.Find("Sweep");
-        rotationSpeed = 45;
-        radarDistance = 150f;
         colliderList = new List<Collider2D>();
    }
 
@@ -48,19 +47,10 @@ public class Radar : MonoBehaviour
             }
         }
         // radarPing.SetDisappearTimer(360 / rotationSpeed * 2f);
-
-
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            rotationSpeed += 20;
-            Debug.Log("rotationSpeed " + rotationSpeed);
-        }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            rotationSpeed -= 20;
-            Debug.Log("rotationSpeed " + rotationSpeed);
-        }
+    }
+    public void ChangeSpeed(float speed)
+    {
+        rotationSpeed = speed;
     }
 }
 
